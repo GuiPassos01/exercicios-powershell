@@ -1,0 +1,41 @@
+﻿Clear-Host
+
+$wshell = New-Object -com WScript.Shell
+
+Write-Host "1 - Adição"
+Write-Host "2 - Subtração"
+Write-Host "3 - Multiplicação"
+Write-Host "4 - Divisao"
+
+[int]$escolha = Read-Host "Escolha qual operação aritmetica voce deseja fazer"
+
+
+switch($escolha){
+    1 {
+        [float]$num1 = Read-Host "Digite um numero"
+        [float]$num2 = Read-Host "Digite o outro numero"
+        [float]$calcAdd = $num1 + $num2
+        $Wshell.Popup($calcAdd)
+    }
+
+    2 {
+        [float]$num1 = Read-Host "Digite um numero"
+        [float]$num2 = Read-Host "Digite o outro numero"
+        [float]$calcLess = $num1 - $num2
+        $Wshell.Popup($calcLess)
+    }
+
+    3 {
+        [float]$num1 = Read-Host "Digite um numero"
+        [float]$num2 = Read-Host "Digite o outro numero"
+        [float]$calcMult = $num1 * $num2
+        $Wshell.Popup($calcMult)
+    }
+
+    4 {
+        [float]$num1 = Read-Host "Digite um numero"
+        [float]$num2 = Read-Host "Digite o outro numero"
+        [float]$calcDiv = $num1 / $num2
+        $Wshell.Popup($calcDiv)        
+    }
+}

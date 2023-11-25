@@ -1,0 +1,17 @@
+﻿Clear-Host
+
+$wshell = New-Object -com WScript.Shell
+
+[int]$dia = Read-Host "Digite um numero de 1 a 7"
+
+if($dia -gt 1 -and -lt 7){
+switch ($dia){
+    1 {$Wshell.Popup("Domingo")}
+    2 {$Wshell.Popup("Segunda")}
+    3 {$Wshell.Popup("Terça")}
+    4 {$Wshell.Popup("Quarta")}
+    5 {$Wshell.Popup("Quinta")}
+    6 {$Wshell.Popup("Sexta")}
+    7 {$Wshell.Popup("Sabado")}
+}
+}else{ Write-Host "Valor inválido" }

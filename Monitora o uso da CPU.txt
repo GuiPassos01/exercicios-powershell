@@ -1,0 +1,11 @@
+﻿Clear-Host
+
+while ($true) {
+    $cpuInfo = Get-WmiObject Win32_PerfFormattedData_PerfOS_Processor | Select-Object -ExpandProperty PercentProcessorTime
+
+    $averageCpuUsage = ($cpuInfo | Measure-Object -Average).Average
+
+    Write-Host "Uso da CPU: $($averageCpuUsage)%"
+
+    Start-Sleep -Seconds 1
+}

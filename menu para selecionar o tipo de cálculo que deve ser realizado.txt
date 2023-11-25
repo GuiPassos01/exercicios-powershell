@@ -1,0 +1,47 @@
+﻿Clear-Host
+
+$wshell = New-Object -com WScript.Shell
+
+Write-Host "`1 - Raiz Quadrada"
+Write-Host "`2 - Metade do numero"
+Write-Host "`3 - 10% do numero"
+Write-Host "`4 - Dobro do numero"
+
+[int]$escolha = Read-Host "`nEscolha uma opção"
+
+[float]$num = Read-Host "Digite um numero"
+
+[float]$calc1 = [math]::Sqrt($num)
+[float]$calc2 = $num/2
+[float]$calc3 = $num * 0.10
+[float]$calc4 = $num * 2
+
+switch($escolha){
+    1{ #raiz quadrada
+      $wshell.Popup("Pressione OK para abrir a calculadora")
+      $wshell.Run("Calc")  
+      Start-Sleep 1         
+      $wshell.SendKeys("$calc1")
+     }
+
+    2{    
+      $wshell.Popup("Pressione OK para abrir a calculadora")  
+      $wshell.Run("Calc")   
+      Start-Sleep 1         
+      $wshell.SendKeys("$calc2")
+     }
+
+    3{
+      $wshell.Popup("Pressione OK para abrir a calculadora") 
+      $wshell.Run("Calc")   
+      Start-Sleep 1          
+      $wshell.SendKeys("$calc3")
+     }
+
+     4{
+      $wshell.Popup("Pressione OK para abrir a calculadora") 
+      $wshell.Run("Calc")   
+      Start-Sleep 1          
+      $wshell.SendKeys("$calc4")
+     }
+}

@@ -1,0 +1,16 @@
+﻿Clear-Host
+
+[int]$a = Read-Host "Digite a primeira nota"
+[int]$b = Read-Host "Digite a segunda nota"
+
+$media = ($a + $b) / 2
+
+if($media -eq 10){
+    "Aprovado com distinção"
+}elseif($media -ge 7){
+    "Aprovado"
+}elseif($media -ge 0){
+    "Reprovado"
+}else{
+    "Nota invalida"
+}

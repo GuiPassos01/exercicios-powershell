@@ -1,0 +1,12 @@
+﻿Clear-Host
+
+$wshell = New-Object -com Wscript.Shell
+
+[string]$letra = Read-Host "Digite uma letra"
+
+
+if($letra -eq "a" -or $letra -eq "e" -or $letra -eq "i" -or $letra -eq "o" -or $letra -eq "u"){
+    $wshell.Popup("Vogal")
+}else{
+    $wshell.Popup("Consoante")
+}

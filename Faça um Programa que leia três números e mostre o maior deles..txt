@@ -1,0 +1,19 @@
+﻿Clear-Host
+
+$wshell = New-Object -com WScript.Shell
+
+[float]$num1 = Read-Host "Digite um numero"
+[float]$num2 = Read-Host "Digite outro numero"
+[float]$num3 = Read-Host "Digite mais um numero"
+
+[float]$maior = $num1
+
+if($num2 -gt $maior){
+    $maior = $num2
+}
+
+if($num3 -gt $maior){
+    $maior = $num3
+}
+
+$Wshell.Popup("O numero $maior é o maior numero entre os inseridos")

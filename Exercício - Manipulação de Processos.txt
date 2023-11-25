@@ -1,0 +1,22 @@
+﻿$processos = Get-Process
+
+Write-Host "Lista de todos os processos em execução:"
+foreach ($processo in $processos) {
+    Write-Host "$($processo.Id) - $($processo.ProcessName)"
+}
+
+$processosUsuarioAtual = $processos | Where-Object { $_.UserName -eq $env:USERNAME }
+
+Write-Host "`nLista de processos iniciados pelo usuário atual:"
+foreach ($processoUsuarioAtual in $processosUsuarioAtual) {
+    Write-Host "$($processoUsuarioAtual.Id) - $($processoUsuarioAtual.ProcessName)"
+}
+
+$processoID = Read-Host "Digite o ID do processo que deseja encerrar"
+
+try {
+    Stop-Process -Id $processoID -Force
+    Write-Host "Processo com ID $processoID encerrado com sucesso."
+} catch {
+    Write-Host "Não foi possível encerrar o processo com ID $processoID. Certifique-se de fornecer um ID válido."
+}

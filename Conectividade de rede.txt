@@ -1,0 +1,13 @@
+﻿Clear-Host
+
+$end = "www.google.com"
+
+Write-Host "Verificando a conectividade de rede com $end..."
+
+$pingResult = Test-Connection -ComputerName $end -Count 4 -ErrorAction SilentlyContinue
+
+if ($pingResult) {
+    Write-Host "Conectividade de rede bem-sucedida."
+} else {
+    Write-Host "Falha na conectividade de rede."
+}

@@ -1,0 +1,21 @@
+﻿Clear-Host
+
+$origem = "C:\Caminho\Da\Pasta\Origem"
+$destino = "C:\Caminho\Da\Pasta\Destino"
+
+if (Test-Path $origem -PathType Container) {
+    if (-not (Test-Path $destino -PathType Container)) {
+        New-Item -ItemType Directory -Path $destino | Out-Null
+    }
+
+    $dataAtual = Get-Date -Format "yyyyMMdd_HHmmss"
+    $nomeBackup = "Backup_$dataAtual"
+
+    $caminhoBackup = Join-Path $destino $nomeBackup
+
+    Copy-Item -Path $origem -Destination $caminhoBackup -Recurse -Force
+
+    Write-Host "Backup concluído com sucesso. Arquivos copiados para: $caminhoBackup"
+} else {
+    Write-Host "A pasta de origem não foi encontrada."
+}

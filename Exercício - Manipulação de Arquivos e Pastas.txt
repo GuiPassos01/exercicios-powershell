@@ -1,0 +1,25 @@
+﻿$pastaOrigem = "C:\Caminho\Da\Pasta"
+
+$arquivos = Get-ChildItem -Path $pastaOrigem
+
+Write-Host "Lista de todos os arquivos na pasta:"
+foreach ($arquivo in $arquivos) {
+    Write-Host $arquivo.Name
+}
+
+$arquivosTxt = Get-ChildItem -Path $pastaOrigem -Filter *.txt
+
+Write-Host "`nLista de arquivos com extensão .txt:"
+foreach ($arquivoTxt in $arquivosTxt) {
+    Write-Host $arquivoTxt.Name
+}
+
+$pastaBackup = Join-Path $pastaOrigem "Backup"
+New-Item -ItemType Directory -Path $pastaBackup -ErrorAction SilentlyContinue
+
+foreach ($arquivoTxt in $arquivosTxt) {
+    $destino = Join-Path $pastaBackup $arquivoTxt.Name
+    Move-Item -Path $arquivoTxt.FullName -Destination $destino -Force
+}
+
+Write-Host "`nArquivos .txt movidos para a pasta Backup."

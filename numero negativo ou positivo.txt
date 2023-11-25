@@ -1,0 +1,9 @@
+﻿Clear-Host
+
+[float]$num = Read-Host "Digite o numero"
+
+if($num -gt 0){
+    Write-Host "O numero $num é positivo"
+}else{
+    Write-Host "O numero $num é negativo"
+}
